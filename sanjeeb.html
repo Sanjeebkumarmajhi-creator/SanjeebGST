@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Goods And Services Tax">
+<meta name="keywords" content="GST, Ministry of Finance, Government of India, Tax, Goods and Service Tax, Indirect Tax, India">
+<title>Goods &amp; Services Tax (GST) | Home</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; font-size: 14px; color: #333; background: #fff; }
+  a { text-decoration: none; color: inherit; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Top utility bar ── */
+  .top-bar {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 4px 0;
+    font-size: 12px;
+  }
+  .top-bar .inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 15px;
+  }
+  .top-bar .left { display: flex; align-items: center; gap: 8px; }
+  .top-bar .skip-link { color: #006eb4; }
+  .top-bar .font-ctrl { display: flex; gap: 4px; }
+  .top-bar .font-ctrl span {
+    cursor: pointer; border: 1px solid #999; padding: 1px 6px;
+    border-radius: 2px; background: #fff; font-weight: bold; color: #006eb4;
+  }
+  .top-bar .right { display: flex; gap: 12px; align-items: center; }
+  .top-bar .right a { color: #006eb4; }
+
+  /* ── Header ── */
+  header {
+    background: #fff;
+    border-bottom: 3px solid #f47920;
+    padding: 10px 0;
+  }
+  header .inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 15px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 14px; }
+  .logo-emblem {
+    width: 70px; height: 70px;
+    background: url('https://www.gst.gov.in/images/logo.png') no-repeat center/contain;
+    /* Fallback: draw Ashoka Chakra placeholder */
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #888;
+  }
+  .logo-emblem-img {
+    width: 68px; height: 68px; object-fit: contain;
+  }
+  .logo-text h1 {
+    font-size: 18px; font-weight: bold;
+    color: #003087; line-height: 1.3;
+  }
+  .logo-text h1 span { color: #f47920; }
+  .logo-text p { font-size: 12px; color: #555; margin-top: 2px; }
+
+  /* Right side of header: GST logo box */
+  .gst-logo-box {
+    text-align: center;
+  }
+  .gst-logo-box .gst-text {
+    font-size: 40px; font-weight: 900; color: #003087; letter-spacing: -1px; line-height: 1;
+  }
+  .gst-logo-box .gst-subtext {
+    font-size: 10px; color: #555; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* ── Nav bar ── */
+  nav.main-nav {
+    background: #003087;
+  }
+  nav.main-nav .inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: stretch;
+    padding: 0 15px;
+  }
+  nav.main-nav > .inner > .nav-item {
+    position: relative;
+  }
+  .nav-item > a, .nav-item > span {
+    display: block; padding: 12px 16px;
+    color: #fff; font-size: 13px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav-item:first-child > a { border-left: 1px solid rgba(255,255,255,0.15); }
+  .nav-item > a:hover, .nav-item > span:hover { background: #f47920; text-decoration: none; }
+  .nav-item .dropdown {
+    display: none; position: absolute; top: 100%; left: 0;
+    background: #fff; border: 1px solid #ddd;
+    min-width: 220px; z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  .nav-item:hover .dropdown { display: block; }
+  .dropdown a {
+    display: block; padding: 9px 15px;
+    color: #003087; font-size: 13px;
+    border-bottom: 1px solid #eee;
+  }
+  .dropdown a:hover { background: #f5f5f5; }
+
+  /* ── Ticker / News band ── */
+  .ticker-bar {
+    background: #e8f4fb;
+    border-bottom: 1px solid #bdd9ef;
+    padding: 6px 0;
+    overflow: hidden;
+  }
+  .ticker-bar .inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; gap: 12px;
+    padding: 0 15px;
+  }
+  .ticker-label {
+    background: #003087; color: #fff;
+    font-size: 11px; font-weight: bold;
+    padding: 3px 10px; border-radius: 3px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .ticker-content {
+    overflow: hidden; flex: 1;
+  }
+  .ticker-scroll {
+    white-space: nowrap;
+    animation: ticker 35s linear infinite;
+    font-size: 12px; color: #003087;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ── Main content ── */
+  .main-content {
+    max-width: 1200px; margin: 0 auto;
+    padding: 18px 15px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+  }
+
+  /* ── Left column ── */
+  .left-col {}
+
+  /* Services grid */
+  .services-section { margin-bottom: 20px; }
+  .section-title {
+    background: linear-gradient(to right, #003087, #0056b3);
+    color: #fff; font-size: 14px; font-weight: bold;
+    padding: 8px 14px; margin-bottom: 1px;
+    border-left: 4px solid #f47920;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border: 1px solid #ddd;
+  }
+  .service-card {
+    background: #fff;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: #f0f7ff; }
+  .service-card .icon {
+    width: 52px; height: 52px;
+    margin: 0 auto 10px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+  }
+  .service-card .icon svg { width: 32px; height: 32px; }
+  .service-card .label {
+    font-size: 13px; font-weight: 600; color: #003087;
+  }
+  .service-card .sublabel {
+    font-size: 11px; color: #666; margin-top: 4px;
+  }
+
+  /* Taxpayer tools row */
+  .tools-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border: 1px solid #ddd;
+    margin-top: 1px;
+  }
+  .tool-card {
+    background: #f9f9f9;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .tool-card:hover { background: #eef5ff; }
+  .tool-card .icon { font-size: 22px; margin-bottom: 6px; }
+  .tool-card .label { font-size: 12px; font-weight: 600; color: #003087; }
+
+  /* News & Updates */
+  .news-section { margin-bottom: 20px; }
+  .news-header {
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to right, #003087, #0056b3);
+    padding: 8px 14px;
+    border-left: 4px solid #f47920;
+    margin-bottom: 0;
+  }
+  .news-header span { color: #fff; font-size: 14px; font-weight: bold; }
+  .news-header a { color: #ffd700; font-size: 12px; }
+  .news-tabs {
+    display: flex; border-bottom: 2px solid #003087;
+    background: #e8f0fb;
+  }
+  .news-tab {
+    padding: 7px 18px; font-size: 12px; font-weight: 600;
+    cursor: pointer; color: #003087;
+    border-right: 1px solid #ccc;
+  }
+  .news-tab.active {
+    background: #003087; color: #fff;
+  }
+  .news-list { border: 1px solid #ddd; border-top: none; }
+  .news-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 9px 12px; border-bottom: 1px solid #eee;
+    font-size: 12px;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-date {
+    background: #003087; color: #fff;
+    font-size: 10px; padding: 3px 6px;
+    border-radius: 2px; white-space: nowrap; flex-shrink: 0;
+    font-weight: bold;
+  }
+  .news-item a { color: #006eb4; line-height: 1.4; }
+  .news-item a:hover { text-decoration: underline; }
+  .new-badge {
+    background: #e00; color: #fff;
+    font-size: 9px; font-weight: bold;
+    padding: 1px 4px; border-radius: 2px;
+    margin-left: 4px; vertical-align: middle;
+  }
+
+  /* ── Right column ── */
+  .right-col {}
+
+  /* Help box */
+  .help-box {
+    border: 1px solid #ddd;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .help-box-title {
+    background: linear-gradient(to right, #003087, #0056b3);
+    color: #fff; font-size: 13px; font-weight: bold;
+    padding: 8px 14px;
+    border-left: 4px solid #f47920;
+  }
+  .help-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 12px; border-bottom: 1px solid #eee;
+    font-size: 12px;
+  }
+  .help-item:last-child { border-bottom: none; }
+  .help-item::before {
+    content: "▶"; color: #f47920; font-size: 10px; flex-shrink: 0;
+  }
+  .help-item a { color: #006eb4; }
+
+  /* Helpdesk */
+  .helpdesk-box {
+    background: #e8f4fb;
+    border: 1px solid #bdd9ef;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+  .helpdesk-box .number {
+    font-size: 18px; font-weight: bold; color: #003087; display: block; margin-top: 4px;
+  }
+  .helpdesk-box .grievance {
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid #bdd9ef;
+  }
+  .helpdesk-box .grievance a {
+    color: #006eb4; font-weight: bold; font-size: 13px;
+  }
+
+  /* Due dates */
+  .due-dates-box {
+    border: 1px solid #ddd;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .due-dates-title {
+    background: linear-gradient(to right, #003087, #0056b3);
+    color: #fff; font-size: 13px; font-weight: bold;
+    padding: 8px 14px;
+    border-left: 4px solid #f47920;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .due-dates-title a { color: #ffd700; font-size: 11px; }
+  .due-tabs { display: flex; background: #e8f0fb; border-bottom: 1px solid #ddd; }
+  .due-tab {
+    padding: 6px 14px; font-size: 11px; font-weight: 600;
+    cursor: pointer; color: #003087;
+    border-right: 1px solid #ccc;
+  }
+  .due-tab.active { background: #003087; color: #fff; }
+  .due-list { padding: 0; }
+  .due-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 7px 10px; border-bottom: 1px solid #eee;
+    font-size: 11px;
+  }
+  .due-item:last-child { border-bottom: none; }
+  .due-date-badge {
+    background: #f47920; color: #fff;
+    font-size: 10px; font-weight: bold;
+    padding: 2px 5px; border-radius: 2px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .due-item p { color: #333; line-height: 1.4; }
+
+  /* GST Media */
+  .media-box {
+    border: 1px solid #ddd;
+    overflow: hidden;
+  }
+  .media-header {
+    background: linear-gradient(to right, #003087, #0056b3);
+    color: #fff; font-size: 13px; font-weight: bold;
+    padding: 8px 14px;
+    border-left: 4px solid #f47920;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .media-header a { color: #ffd700; font-size: 11px; }
+  .media-video {
+    background: #000;
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 12px;
+    position: relative;
+  }
+  .play-btn {
+    width: 50px; height: 50px;
+    background: rgba(255,0,0,0.8);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; cursor: pointer;
+  }
+  .media-thumb-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: #ddd; border-top: 1px solid #ddd;
+  }
+  .media-thumb {
+    background: #111;
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    color: #888; font-size: 10px; cursor: pointer;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: #003087;
+    color: #ccc;
+    margin-top: 20px;
+    padding: 0;
+  }
+  .footer-links {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 0;
+    padding: 14px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .footer-links a {
+    color: #ccc; font-size: 12px; padding: 3px 12px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  .footer-links a:first-child { padding-left: 0; }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding: 10px 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .footer-bottom p { font-size: 11px; color: #aaa; }
+  .footer-bottom .logos { display: flex; gap: 10px; align-items: center; }
+  .footer-badge {
+    background: #fff; color: #003087;
+    font-size: 10px; font-weight: bold;
+    padding: 3px 8px; border-radius: 3px;
+  }
+
+  /* Back to top */
+  .back-top {
+    position: fixed; bottom: 20px; right: 20px;
+    background: #003087; color: #fff;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
+  /* Tab switching */
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="inner">
+    <div class="left">
+      <a href="#main" class="skip-link">Skip to Main Content</a>
+      <div class="font-ctrl">
+        <span onclick="changeFontSize(1)" title="Increase font size">A+</span>
+        <span onclick="changeFontSize(-1)" title="Decrease font size">A-</span>
+      </div>
+    </div>
+    <div class="right">
+      <a href="#">Screen Reader Access</a>
+      <a href="#">Site Map</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="inner">
+    <div class="logo-area">
+      <!-- Ashoka Emblem SVG placeholder -->
+      <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="34" cy="34" r="33" fill="#003087" stroke="#f47920" stroke-width="2"/>
+        <text x="34" y="30" text-anchor="middle" fill="#fff" font-size="9" font-family="Arial">🇮🇳</text>
+        <text x="34" y="44" text-anchor="middle" fill="#f47920" font-size="7" font-family="Arial">INDIA</text>
+      </svg>
+      <div class="logo-text">
+        <h1>Goods and Services Tax<br><span>Government of India, States and Union Territories</span></h1>
+      </div>
+    </div>
+    <div class="gst-logo-box">
+      <div class="gst-text" style="color:#003087;">GST</div>
+      <div style="font-size:11px;color:#003087;font-weight:bold;letter-spacing:2px;">GOODS AND SERVICES TAX</div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="main-nav">
+  <div class="inner">
+    <div class="nav-item"><a href="#">Home</a></div>
+    <div class="nav-item">
+      <span>Services ▾</span>
+      <div class="dropdown">
+        <a href="#">Registration</a>
+        <a href="#">Returns</a>
+        <a href="#">Payments</a>
+        <a href="#">Refunds</a>
+        <a href="#">E-Way Bill</a>
+        <a href="#">Appeal</a>
+        <a href="#">Advance Ruling</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>GST Law ▾</span>
+      <div class="dropdown">
+        <a href="#">Acts</a>
+        <a href="#">Rules</a>
+        <a href="#">Notifications</a>
+        <a href="#">Circulars</a>
+        <a href="#">Press Releases</a>
+        <a href="#">Orders</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Downloads ▾</span>
+      <div class="dropdown">
+        <a href="#">Offline Tools</a>
+        <a href="#">GST Statistics</a>
+        <a href="#">Cause List</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Search Taxpayer ▾</span>
+      <div class="dropdown">
+        <a href="#">Search by GSTIN/UIN</a>
+        <a href="#">Search Temporary ID</a>
+        <a href="#">Search Composition Taxpayer</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <span>Help and Taxpayer Facilities ▾</span>
+      <div class="dropdown">
+        <a href="#">FAQs</a>
+        <a href="#">User Manual</a>
+        <a href="#">Videos</a>
+        <a href="#">GSTN Helpdesk</a>
+        <a href="#">Locate GST Practitioner</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">e-Invoice</a></div>
+    <div class="nav-item"><a href="#">e-Way Bill System</a></div>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="inner">
+    <span class="ticker-label">News</span>
+    <div class="ticker-content">
+      <div class="ticker-scroll">
+        Advisory on New functionality of Bill of Entry (BoE) Reconciliation in GSTR-2B &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Advisory for the New Functionality of Form DRC-03A &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Clarification on IGST/Cess liability of IGST Scheme under Foreign Trade Policy &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Seeks to amend Notification No. 2/2017 — Integrated Tax (Rate) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Auto-population of liability in GSTR-3B from GSTR-1 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Advisory on Opting for Composition Levy under GST
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-content" id="main">
+
+  <!-- LEFT COLUMN -->
+  <div class="left-col">
+
+    <!-- Services Section -->
+    <div class="services-section">
+      <div class="section-title">Taxpayer Services</div>
+      <div class="services-grid">
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#e8f4ff;">
+            <svg viewBox="0 0 32 32" fill="#003087"><rect x="4" y="4" width="24" height="24" rx="3" stroke="#003087" stroke-width="2" fill="none"/><line x1="9" y1="11" x2="23" y2="11" stroke="#003087" stroke-width="2"/><line x1="9" y1="16" x2="23" y2="16" stroke="#003087" stroke-width="2"/><line x1="9" y1="21" x2="17" y2="21" stroke="#003087" stroke-width="2"/></svg>
+          </div>
+          <div class="label">Registration</div>
+          <div class="sublabel">New / Amendment / Cancellation</div>
+        </div>
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#fff5e8;">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="5" y="3" width="22" height="26" rx="2" stroke="#f47920" stroke-width="2"/><line x1="10" y1="10" x2="22" y2="10" stroke="#f47920" stroke-width="2"/><line x1="10" y1="15" x2="22" y2="15" stroke="#f47920" stroke-width="2"/><line x1="10" y1="20" x2="16" y2="20" stroke="#f47920" stroke-width="2"/><polyline points="18,18 22,22 28,14" stroke="#0a0" stroke-width="2" fill="none"/></svg>
+          </div>
+          <div class="label">Returns</div>
+          <div class="sublabel">File / View / Track</div>
+        </div>
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#e8fff0;">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#0a8" stroke-width="2"/><text x="16" y="21" text-anchor="middle" fill="#0a8" font-size="13" font-family="Arial" font-weight="bold">₹</text></svg>
+          </div>
+          <div class="label">Payments</div>
+          <div class="sublabel">Create Challan / Track Payment</div>
+        </div>
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#fef0ff;">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="20" rx="2" stroke="#903" stroke-width="2"/><polyline points="10,13 15,18 22,10" stroke="#903" stroke-width="2.5" fill="none"/></svg>
+          </div>
+          <div class="label">Refunds</div>
+          <div class="sublabel">Apply Online / Track</div>
+        </div>
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#fffbe8;">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 4h16l4 6v18H4V4h4z" stroke="#c80" stroke-width="2"/><line x1="12" y1="15" x2="20" y2="15" stroke="#c80" stroke-width="2"/><line x1="12" y1="20" x2="20" y2="20" stroke="#c80" stroke-width="2"/></svg>
+          </div>
+          <div class="label">e-Invoice</div>
+          <div class="sublabel">Generate / Cancel / Search</div>
+        </div>
+
+        <div class="service-card" onclick="location.href='#'">
+          <div class="icon" style="background:#e8f8ff;">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="2" stroke="#069" stroke-width="2"/><circle cx="12" cy="16" r="3" stroke="#069" stroke-width="2"/><line x1="18" y1="13" x2="24" y2="13" stroke="#069" stroke-width="1.5"/><line x1="18" y1="17" x2="24" y2="17" stroke="#069" stroke-width="1.5"/><line x1="18" y1="21" x2="22" y2="21" stroke="#069" stroke-width="1.5"/></svg>
+          </div>
+          <div class="label">e-Way Bill</div>
+          <div class="sublabel">Generate / Cancel / Extend</div>
+        </div>
+
+      </div>
+
+      <!-- Tool cards row -->
+      <div class="tools-row">
+        <div class="tool-card">
+          <div class="icon">🔍</div>
+          <div class="label">Search Taxpayer</div>
+        </div>
+        <div class="tool-card">
+          <div class="icon">📋</div>
+          <div class="label">Know Your Jurisdiction</div>
+        </div>
+        <div class="tool-card">
+          <div class="icon">🧮</div>
+          <div class="label">GST Calculator</div>
+        </div>
+        <div class="tool-card">
+          <div class="icon">📄</div>
+          <div class="label">Track Application Status</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News & Updates -->
+    <div class="news-section">
+      <div class="news-header">
+        <span>News and Updates</span>
+        <a href="#">View All</a>
+      </div>
+      <div class="news-tabs">
+        <div class="news-tab active" onclick="switchTab(this,'news')">Notifications/Circulars</div>
+        <div class="news-tab" onclick="switchTab(this,'orders')">Orders</div>
+        <div class="news-tab" onclick="switchTab(this,'advisories')">Advisories</div>
+        <div class="news-tab" onclick="switchTab(this,'press')">Press Releases</div>
+      </div>
+
+      <div id="news" class="tab-pane active news-list">
+        <div class="news-item">
+          <span class="news-date">20 May 2026</span>
+          <div><a href="#">Seeks to amend Notification No. 2/2017- Integrated Tax (Rate) dated 28.06.2017<span class="new-badge">NEW</span></a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">18 May 2026</span>
+          <div><a href="#">Circular clarifying IGST/Cess liability of IGST Scheme under the Foreign Trade Policy</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">15 May 2026</span>
+          <div><a href="#">Notification regarding amendment in CGST Rules, 2017</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">10 May 2026</span>
+          <div><a href="#">Clarification on taxability of personal guarantee offered by directors to bank against credit limits</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">05 May 2026</span>
+          <div><a href="#">Notification regarding waiver of interest and penalty under Section 128A of CGST Act, 2017</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">28 Apr 2026</span>
+          <div><a href="#">Circular on GST applicability on salary/managerial services between related persons</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">20 Apr 2026</span>
+          <div><a href="#">Seeks to amend notification no. 9/2017 – Integrated Tax</a></div>
+        </div>
+      </div>
+
+      <div id="orders" class="tab-pane news-list">
+        <div class="news-item">
+          <span class="news-date">14 May 2026</span>
+          <div><a href="#">Order No. 03/2026-CT dated 14.05.2026 — Extension of time limit for filing appeals</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">01 Apr 2026</span>
+          <div><a href="#">Order No. 01/2026-CT — Extension of time limit under Section 73 for FY 2019-20</a></div>
+        </div>
+      </div>
+
+      <div id="advisories" class="tab-pane news-list">
+        <div class="news-item">
+          <span class="news-date">22 May 2026</span>
+          <div><a href="#">Advisory on New functionality of Bill of Entry (BoE) Reconciliation in GSTR-2B<span class="new-badge">NEW</span></a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">17 May 2026</span>
+          <div><a href="#">Advisory for the New Functionality of Form DRC-03A<span class="new-badge">NEW</span></a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">08 May 2026</span>
+          <div><a href="#">Advisory on Opting for Composition Levy under GST</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">01 May 2026</span>
+          <div><a href="#">Advisory on Auto-population of liability in GSTR-3B from GSTR-1</a></div>
+        </div>
+      </div>
+
+      <div id="press" class="tab-pane news-list">
+        <div class="news-item">
+          <span class="news-date">12 May 2026</span>
+          <div><a href="#">GST Council 55th Meeting — Key decisions and recommendations</a></div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">03 May 2026</span>
+          <div><a href="#">GST collections for April 2026 touch all-time high of ₹2.37 lakh crore</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /left-col -->
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-col">
+
+    <!-- Login / Register -->
+    <div style="display:flex;gap:10px;margin-bottom:16px;">
+      <a href="#" style="flex:1;background:#f47920;color:#fff;text-align:center;padding:10px;font-weight:bold;font-size:14px;border-radius:3px;display:block;">Login</a>
+      <a href="#" style="flex:1;background:#003087;color:#fff;text-align:center;padding:10px;font-weight:bold;font-size:14px;border-radius:3px;display:block;">Register</a>
+    </div>
+
+    <!-- Popular Help Topics -->
+    <div class="help-box">
+      <div class="help-box-title">Popular Help Topics</div>
+      <div class="help-item"><a href="#">How do I register with GST?</a></div>
+      <div class="help-item"><a href="#">How do I apply for refund?</a></div>
+      <div class="help-item"><a href="#">How do I file returns?</a></div>
+      <div class="help-item"><a href="#">How can I use Returns Offline Tool?</a></div>
+      <div class="help-item"><a href="#">How do I file an appeal?</a></div>
+      <div class="help-item"><a href="#">How do I file intimation about voluntary payment?</a></div>
+    </div>
+
+    <!-- Helpdesk -->
+    <div class="helpdesk-box">
+      <div>Help Desk Number:</div>
+      <span class="number">1800-103-4786</span>
+      <div class="grievance">
+        Log/Track Your Issues here<br>
+        <a href="https://selfservice.gstsystem.in/" target="_blank">Grievance Redressal ›</a>
+      </div>
+    </div>
+
+    <!-- Upcoming Due Dates -->
+    <div class="due-dates-box">
+      <div class="due-dates-title">
+        <span>Upcoming Due Dates</span>
+        <a href="#">Download PDF</a>
+      </div>
+      <div class="due-tabs">
+        <div class="due-tab active" onclick="switchDueTab(this,'monthly')">Monthly</div>
+        <div class="due-tab" onclick="switchDueTab(this,'quarterly')">Quarterly</div>
+        <div class="due-tab" onclick="switchDueTab(this,'other')">Other</div>
+      </div>
+
+      <div id="monthly" class="tab-pane active due-list">
+        <div class="due-item">
+          <span class="due-date-badge">11 Jun</span>
+          <p>GSTR-7 / GSTR-8 for May 2026 (TDS/TCS deductors)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">13 Jun</span>
+          <p>GSTR-1 for May 2026 (Monthly filers)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">13 Jun</span>
+          <p>IFF for May 2026 (Quarterly — QRMP scheme)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">20 Jun</span>
+          <p>GSTR-3B for May 2026 (Monthly — > ₹5 cr)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">25 Jun</span>
+          <p>GST PMT-06 for May 2026 (QRMP scheme)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">28 Jun</span>
+          <p>GSTR-11 for May 2026 (UIN holders)</p>
+        </div>
+      </div>
+
+      <div id="quarterly" class="tab-pane due-list">
+        <div class="due-item">
+          <span class="due-date-badge">22 Jul</span>
+          <p>GSTR-3B (Quarterly — QRMP scheme, ≤5 cr) for Apr–Jun 2026 (Cat. X states)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">24 Jul</span>
+          <p>GSTR-3B (Quarterly — QRMP scheme, ≤5 cr) for Apr–Jun 2026 (Cat. Y states)</p>
+        </div>
+      </div>
+
+      <div id="other" class="tab-pane due-list">
+        <div class="due-item">
+          <span class="due-date-badge">30 Jun</span>
+          <p>GSTR-4 for FY 2025-26 (Composition taxpayers)</p>
+        </div>
+        <div class="due-item">
+          <span class="due-date-badge">31 Dec</span>
+          <p>GSTR-9 / GSTR-9C for FY 2025-26 (Annual Return)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GST Media -->
+    <div class="media-box">
+      <div class="media-header">
+        <span>GST Media</span>
+        <a href="https://www.youtube.com/channel/UCFYpOk92qurlO5t-Z_y-bOQ" target="_blank">View All ›</a>
+      </div>
+      <div class="media-video">
+        <div style="text-align:center;">
+          <div class="play-btn">▶</div>
+          <div style="margin-top:8px;font-size:11px;color:#ccc;">GST Official Channel</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /right-col -->
+
+</div><!-- /main-content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">About GST</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Help</a>
+    <a href="#">Sitemap</a>
+    <a href="#">Accessibility Statement</a>
+    <a href="#">Hyperlink Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Copyright Policy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Screen Reader Access</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Goods and Services Tax Network. All Rights Reserved.<br>Site designed, developed and hosted by GSTN.</p>
+    <div class="logos">
+      <span class="footer-badge">W3C</span>
+      <span class="footer-badge">GIGW</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<div class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">▲</div>
+
+<script>
+  function changeFontSize(delta) {
+    const size = parseFloat(getComputedStyle(document.body).fontSize) + delta;
+    if (size >= 10 && size <= 22) document.body.style.fontSize = size + 'px';
+  }
+
+  function switchTab(el, id) {
+    // Deactivate all in news section
+    document.querySelectorAll('.news-tabs .news-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#news,#orders,#advisories,#press').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  function switchDueTab(el, id) {
+    document.querySelectorAll('.due-tabs .due-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#monthly,#quarterly,#other').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+</body>
+</html>
